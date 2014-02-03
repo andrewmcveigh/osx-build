@@ -71,6 +71,11 @@ cd /tmp
 curl -O http://www.iterm2.com/downloads/beta/iTerm2-1_0_0_20140112.zip
 unzip iTerm2-1_0_0_20140112.zip
 mv iTerm.app /Applications/
+# iTerm 2 settings
+defaults write com.googlecode.iterm2 LeftOption -int 2
+defaults write com.googlecode.iterm2 RightOption -int 2
+#defaults write com.googlecode.iterm2 "Option Key Sends" -int 2
+#defaults write com.googlecode.iterm2 "Right Option Key Sends" -int 2
 
 # Dropbox
 wget -O dropbox.dmg -U 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10.6; rv:25.0) Gecko/20100101 Firefox/25.0' https://www.dropbox.com/download?src=index&plat=mac
