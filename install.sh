@@ -74,28 +74,33 @@ mv iTerm.app /Applications/
 
 # Dropbox
 wget -O dropbox.dmg -U 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10.6; rv:25.0) Gecko/20100101 Firefox/25.0' https://www.dropbox.com/download?src=index&plat=mac
-open dropdox.dmg
+hdiutil attach dropdox.dmg
 /Volumes/Dropbox\ Installer/Dropbox.app/Contents/MacOS/Dropbox\ Installer
 
 # Aquamacs
 wget -O aquamacs.dmg -U 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10.6; rv:25.0) Gecko/20100101 Firefox/25.0' https://github.com/davidswelt/aquamacs-emacs/releases/download/Aquamacs-3.0a/Aquamacs-Emacs-3.0a.dmg
-open aquamacs.dmg
+hdiutil attach aquamacs.dmg
 cp -r /Volumes/Aquamacs\ Emacs/Aquamacs.app /Applications/
 
 # Firefox
 wget -O firefox.dmg -U 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10.6; rv:25.0) Gecko/20100101 Firefox/25.0' 'https://download.mozilla.org/?product=firefox-26.0&os=osx&lang=en-US'
-open firefox.dmg
+hdiutil attach firefox.dmg
 cp -r /Volumes/Firefox/Firefox.app /Applications/
 
 # Intuos driver
 wget -O intuos.dmg http://cdn.wacom.com/u/drivers/mac/pro/WacomTablet_6.3.7-3.dmg
-open intuos.dmg
+hdiutil attach intuos.dmg
 sudo installer -pkg /Volumes/WacomTablet/Install\ Wacom\ Tablet.pkg -target /
 
 # install Alfred 2
 wget -O alfred.zip http://cachefly.alfredapp.com/Alfred_2.1.1_227.zip
 unzip alfred.zip
 mv Alfred\ 2.app /Applications/
+
+#Virtualbox
+wget -O virtualbox.dmg http://download.virtualbox.org/virtualbox/4.3.6/VirtualBox-4.3.6-91406-OSX.dmg
+hdiutil attach virtualbox.dmg
+sudo installer -pkg /Volumes/VirtualBox/VirtualBox.pkg -target /
 
 # OSX Settings
 
@@ -130,3 +135,4 @@ defaults write com.apple.screensaver askForPasswordDelay -int 0
 file=/Applications/Dropbox.app/Contents/Resources/check.icns
 [ -e "$file" ] && mv -f "$file" "$file.bak"
 unset file
+
