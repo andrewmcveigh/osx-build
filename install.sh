@@ -94,6 +94,10 @@ mv Alfred\ 2.app /Applications/
 # Alfred prefs
 defaults write com.runningwithcrayons.Alfred-Preferences features.defaultresults.scope -array-add "/usr/local/Cellar/emacs"
 defaults write com.runningwithcrayons.Alfred-Preferences features.defaultresults.scope -array-add "/usr/local/Cellar/macvim"
+defaults write com.runningwithcrayons.Alfred-Preferences appearance.theme -string "alfred.theme.lightlarge"
+defaults write com.runningwithcrayons.Alfred-Preferences hotkey.default -dict-add key 49
+defaults write com.runningwithcrayons.Alfred-Preferences hotkey.default -dict-add mod 1048576
+defaults write com.runningwithcrayons.Alfred-Preferences hotkey.default -dict-add string "Space"
 
 #Virtualbox
 wget -O virtualbox.dmg http://download.virtualbox.org/virtualbox/4.3.6/VirtualBox-4.3.6-91406-OSX.dmg
