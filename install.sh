@@ -54,8 +54,8 @@ cat << EOF > ~/.gitconfig
 EOF
 
 brew install macvim --override-system-vim
-brew linkapps
 brew install --cocoa --srgb emacs
+brew linkapps
 
 brew install fuse4x
 brew install encfs
@@ -155,5 +155,6 @@ git clone git@github.com:andrewmcveigh/.vim.git vim
 git clone git@github.com:andrewmcveigh/emacs.d.git
 
 # Project links
+cd ~
 ln -s ~/Projects/vim .vim
 ln -s ~/Projects/emacs.d .emacs.d
