@@ -35,22 +35,22 @@ source ~/.inputrc
 brew install git
 cat << EOF > ~/.gitconfig
 [alias]
-	graph = log --graph --all --format=format:'%C(bold blue)%h%C(reset) - %C(bold cyan)%cD%C(reset) %C(bold green)(%cr)%C(reset)%C(bold yellow)%d%C(reset)%n''          %C(white)%s%C(reset) %C(bold white)— %cn%C(reset)' --abbrev-commit
+    graph = log --graph --all --format=format:'%C(bold blue)%h%C(reset) - %C(bold cyan)%cD%C(reset) %C(bold green)(%cr)%C(reset)%C(bold yellow)%d%C(reset)%n''          %C(white)%s%C(reset) %C(bold white)— %cn%C(reset)' --abbrev-commit
 [color]
-	ui = true
+    ui = true
 [user]
-	name = Andrew Mcveigh
-	email = me@andrewmcveigh.com
+    name = Andrew Mcveigh
+    email = me@andrewmcveigh.com
 [core]
-	editor = /usr/bin/vim
+    editor = /usr/bin/vim
 [mergetool "fugitive"]
-	cmd = vi -f -c \"Gdiff\" \"$MERGED\"
+    cmd = vi -f -c \"Gdiff\" \"$MERGED\"
 [merge]
-	tool = fugitive
+    tool = fugitive
 [pretty]
-	changelog = format:- %w(76,0,2)%s%n%w(76,2,2)%b
+    changelog = format:- %w(76,0,2)%s%n%w(76,2,2)%b
 [push]
-	default = simple
+    default = simple
 EOF
 
 brew install macvim --override-system-vim
@@ -103,12 +103,6 @@ sudo installer -pkg /Volumes/VirtualBox/VirtualBox.pkg -target /
 defaults write NSGlobalDomain AppleKeyboardUIMode -int 3
 # Enable subpixel font rendering on non-Apple LCDs
 defaults write NSGlobalDomain AppleFontSmoothing -int 2
-# Use current directory as default search scope in Finder
-defaults write com.apple.finder FXDefaultSearchScope -string "SCcf"
-# Show Path bar in Finder
-defaults write com.apple.finder ShowPathbar -bool true
-# Show Status bar in Finder
-defaults write com.apple.finder ShowStatusBar -bool true
 # Expand save panel by default
 defaults write NSGlobalDomain NSNavPanelExpandedStateForSaveMode -bool true
 # Expand print panel by default
@@ -119,12 +113,27 @@ defaults write com.apple.dock autohide -boolean true
 defaults write com.apple.dock orientation -string "left"
 defaults write com.apple.dock tilesize -integer 48
 killall Dock
-# Display full POSIX path as Finder window title
-defaults write com.apple.finder _FXShowPosixPathInTitle -bool true
 # Avoid creating .DS_Store files on network volumes
 defaults write com.apple.desktopservices DSDontWriteNetworkStores -bool true
+
+# Finder settings
+# remove settings
+rm ~/Library/Preferences/com.apple.finder.plist
+killall Finder
+# Display full POSIX path as Finder window title
+defaults write com.apple.finder _FXShowPosixPathInTitle -bool true
+# Use current directory as default search scope in Finder
+defaults write com.apple.finder FXDefaultSearchScope -string "SCcf"
+# Show Path bar in Finder
+defaults write com.apple.finder ShowPathbar -bool true
+# Show Status bar in Finder
+defaults write com.apple.finder ShowStatusBar -bool true
 # Disable the warning when changing a file extension
 defaults write com.apple.finder FXEnableExtensionChangeWarning -bool false
+# List view
+defaults write com.apple.Finder FXPreferredViewStyle Nlsv
+killall Finder
+
 # Enable snap-to-grid for desktop icons
 /usr/libexec/PlistBuddy -c "Set :DesktopViewSettings:IconViewSettings:arrangeBy grid" ~/Library/Preferences/com.apple.finder.plist
 # Require password immediately after sleep or screen saver begins
