@@ -91,6 +91,9 @@ sudo installer -pkg /Volumes/WacomTablet/Install\ Wacom\ Tablet.pkg -target /
 wget -O alfred.zip http://cachefly.alfredapp.com/Alfred_2.1.1_227.zip
 unzip alfred.zip
 mv Alfred\ 2.app /Applications/
+# Alfred prefs
+defaults write com.runningwithcrayons.Alfred-Preferences features.defaultresults.scope -array-add "/usr/local/Cellar/emacs"
+defaults write com.runningwithcrayons.Alfred-Preferences features.defaultresults.scope -array-add "/usr/local/Cellar/macvim"
 
 #Virtualbox
 wget -O virtualbox.dmg http://download.virtualbox.org/virtualbox/4.3.6/VirtualBox-4.3.6-91406-OSX.dmg
