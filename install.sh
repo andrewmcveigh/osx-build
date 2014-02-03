@@ -12,7 +12,6 @@ mkdir -p ~/.temp/backup
 mkdir -p ~/.temp/swp
 mkdir -p ~/.temp/undo
 mkdir -p ~/Secure
-ln -s ~/Dropbox/bin ~/bin
 mkdir ~/Projects
 
 # Install homebrew & homebrew apps
@@ -56,6 +55,7 @@ EOF
 
 brew install macvim --override-system-vim
 brew linkapps
+brew install --cocoa --srgb emacs
 
 brew install fuse4x
 brew install encfs
@@ -76,11 +76,6 @@ mv iTerm.app /Applications/
 wget -O dropbox.dmg -U 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10.6; rv:25.0) Gecko/20100101 Firefox/25.0' https://www.dropbox.com/download?src=index&plat=mac
 hdiutil attach dropdox.dmg
 /Volumes/Dropbox\ Installer/Dropbox.app/Contents/MacOS/Dropbox\ Installer
-
-# Aquamacs
-wget -O aquamacs.dmg -U 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10.6; rv:25.0) Gecko/20100101 Firefox/25.0' https://github.com/davidswelt/aquamacs-emacs/releases/download/Aquamacs-3.0a/Aquamacs-Emacs-3.0a.dmg
-hdiutil attach aquamacs.dmg
-cp -r /Volumes/Aquamacs\ Emacs/Aquamacs.app /Applications/
 
 # Firefox
 wget -O firefox.dmg -U 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10.6; rv:25.0) Gecko/20100101 Firefox/25.0' 'https://download.mozilla.org/?product=firefox-26.0&os=osx&lang=en-US'
@@ -136,3 +131,16 @@ file=/Applications/Dropbox.app/Contents/Resources/check.icns
 [ -e "$file" ] && mv -f "$file" "$file.bak"
 unset file
 
+
+# Dropbox Links
+ln -s ~/Dropbox/bin ~/bin
+ln -s ~/Dropbox/Config/dotfiles/lein .lein
+
+# Github Config
+cd ~/Projects
+git clone git@github.com:andrewmcveigh/.vim.git vim
+git clone git@github.com:andrewmcveigh/emacs.d.git
+
+# Project links
+ln -s ~/Projects/vim .vim
+ln -s ~/Projects/emacs.d .emacs.d
