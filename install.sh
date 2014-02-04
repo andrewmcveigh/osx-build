@@ -97,6 +97,10 @@ sudo installer -pkg /Volumes/WacomTablet/Install\ Wacom\ Tablet.pkg -target /
 wget -O alfred.zip http://cachefly.alfredapp.com/Alfred_2.1.1_227.zip
 unzip alfred.zip
 mv Alfred\ 2.app /Applications/
+# disable spotlight on cmd-space so Alfred can use it
+defaults write com.apple.symbolichotkeys AppleSymbolicHotKeys -dict-add 64 "{ enabled = 0; value = { parameters = ( 32, 49, 1048576); type = standard; }; }"
+# disable spotlight window shortcut
+defaults write com.apple.symbolichotkeys AppleSymbolicHotKeys -dict-add 65 "{ enabled = 0; value = { parameters = ( 32, 49, 1048576); type = standard; }; }"
 # Alfred prefs
 defaults write com.runningwithcrayons.Alfred-Preferences features.defaultresults.scope -array-add "/usr/local/Cellar/emacs"
 defaults write com.runningwithcrayons.Alfred-Preferences features.defaultresults.scope -array-add "/usr/local/Cellar/macvim"
@@ -146,6 +150,10 @@ defaults write com.apple.finder FXEnableExtensionChangeWarning -bool false
 # List view
 defaults write com.apple.Finder FXPreferredViewStyle Nlsv
 killall Finder
+
+# Stop Bluetooth mouse nag window
+sudo defaults write /Library/Preferences/com.apple.Bluetooth BluetoothAutoSeekKeyboard -int 0
+sudo defaults write /Library/Preferences/com.apple.Bluetooth BluetoothAutoSeekPointingDevice -int 0
 
 # Enable snap-to-grid for desktop icons
 /usr/libexec/PlistBuddy -c "Set :DesktopViewSettings:IconViewSettings:arrangeBy grid" ~/Library/Preferences/com.apple.finder.plist
