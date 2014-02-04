@@ -57,11 +57,12 @@ brew install macvim --override-system-vim
 brew install --cocoa --srgb emacs
 brew linkapps
 
-brew install fuse4x
-brew install encfs
-brew install sshfs
-sudo cp -rfX /usr/local/Cellar/fuse4x-kext/0.9.1/Library/Extensions/fuse4x.kext /Library/Extensions
-sudo chmod +s /Library/Extensions/fuse4x.kext/Support/load_fuse4x
+brew install wget
+#brew install fuse4x
+#brew install encfs
+#brew install sshfs
+#sudo cp -rfX /usr/local/Cellar/fuse4x-kext/0.9.1/Library/Extensions/fuse4x.kext /Library/Extensions
+#sudo chmod +s /Library/Extensions/fuse4x.kext/Support/load_fuse4x
 
 # Install .apps
 
