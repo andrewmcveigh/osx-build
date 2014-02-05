@@ -179,3 +179,7 @@ git clone git@github.com:andrewmcveigh/emacs.d.git
 cd ~
 ln -s ~/Projects/vim .vim
 ln -s ~/Projects/emacs.d .emacs.d
+
+# Add keychain menu
+defaults write com.apple.systemuiserver menuExtras -array-add "/Applications/Utilities/Keychain Access.app/Contents/Resources/Keychain.menu"
+killall SystemUIServer
